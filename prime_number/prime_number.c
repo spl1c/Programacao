@@ -2,10 +2,10 @@
  
  int main() {
 
-    int number = 15;
+    long int number = 676767898790767;
     int div = 2;
     int rest;
-    int d;
+    int d = 0;
 
     for(; div < number; div = div + 1)
     {
@@ -15,9 +15,9 @@
         }
     }
     if (d == 0){
-        printf("%d is a prime number.\n", number);
+        printf("%ld is a prime number.\n", number);
     } else {
-        printf("%d is not a prime number.\n", number);
+        printf("%ld is not a prime number.\n", number);
     }
  }
  
