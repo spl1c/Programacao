@@ -26,10 +26,10 @@ int main(void)
         scanf("%d", &n);
     }
     
-    // aqui fazia alguma cena pa aproximar
+    // calculo da aproximação do decimal
     pot = potencia(n);
     rounded_number = (number*pot + 0,5)/pot;
-
+    //printf do resultado pedido e do sem a especificaçao da conta
     printf("O valor esperado é %.*f", n, number);
     printf("O valor obtido é %f", rounded_number);
     return 0;
