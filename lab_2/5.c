@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-#define RADIO_WAVES 3e9
+// definir as frequencias possiveis
+#define RADIO_WAVES 3e9 
 #define MICROWAVES 3e12
 #define INFRARED_LIGHT 4.3e14
 #define VISIBLE_LIGHT 7.5e14
@@ -9,6 +10,7 @@
 #define GAMMA_RAYS 3e19
 
 void radiacao(double frequency){
+
     if (frequency < RADIO_WAVES)
     {
         printf("Radio waves\n");
@@ -29,17 +31,21 @@ void radiacao(double frequency){
     {
         printf("X-ray\n");
     }
-    else
+    else if (frequency < GAMMA_RAYS)
     {
         printf("Gamma rays\n");
+    }
+    else // caso nenhum caso seja satisfeito o programa avisa o utilizador
+    {
+        printf("Frequência não correspondida.");
     }
 }
 int main(){
 
     double frequency;
 
-    printf("Escreve uma frequência: ");
+    printf("Escreve uma frequência: "); // receber uma frequencia do utilizador
     scanf("%lf", &frequency);
-    radiacao(frequency);
+    radiacao(frequency); // chamar a funcao radiacao com o parametro frequency dado pelo utilizador
     return 0;
 }

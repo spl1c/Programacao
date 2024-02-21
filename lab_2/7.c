@@ -15,7 +15,7 @@ int main(void)
     // aqui fazia alguma cena pa aproximar
 
 
-    printf("O valor esperado é %.*f", n, number);
-    printf("O valor obtido é %f", rounded_number);
+    printf("O valor esperado é %.*f", n, number); // output do resultado esperado
+    printf("O valor obtido é %f", rounded_number);// e do resultado obtido
 
 }
