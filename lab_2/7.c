@@ -20,6 +20,7 @@ int main(void)
     // input de n, numero de casas decimais
     printf("Escreva um numero que seja entre 1 e 7: ");
     scanf("%d", &n);
+  
     while (n<1 || n> 7)
     {
         printf("Volta a escrever o numero num intervalo entre 1 e 7: ");
@@ -33,4 +34,5 @@ int main(void)
     printf("O valor esperado é %.*f", n, number);
     printf("O valor obtido é %f", rounded_number);
     return 0;
+  
 }
