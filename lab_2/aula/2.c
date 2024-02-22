@@ -6,21 +6,22 @@ int main()
 {
     float v; // inicial velocity
     float max_h; // maximum height
-    float h;
-    float ang;
+    float h = 0;
+    float rad;
+    float ang = 0;
     float g = 9.8;
+
     printf("Please enter the inicial velocity(m/s) and the ceiling height (m) with a space in between: ");
-    scanf("%f %f", &v, &h);
+    scanf("%f %f", &v, &max_h);
 
-    for (ang = 1, h>= max_h, ang++)
+    while (max_h>h) // while loop that runs until the height
     {
-        max_h = pow(v, 2)*sin(a)/2*g;
+        rad = ang * ( 3.14 / 180.0 );
+        h = pow(v, 2)*pow(sin(rad), 2)/2*g;
+        ang++;
     }
-    angle_sin = sqrt(2*g*h)/v;
-    angle = asin(angle_sin);
-    angle = angle * ( 180.0 / 3.14 );
 
-    printf("%f", angle);
+    printf("0.000 %.3f", ang);
 
 
 }
