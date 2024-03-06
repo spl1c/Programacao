@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int num(int l) {
-    if (l == 0) return 1; // Base do fatorial: 0! = 1
+    if (l == 0) return 1;
     int resultado = 1;
     for (int i = 1; i <= l; ++i) {
         resultado *= i;
