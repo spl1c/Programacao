@@ -1,39 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int num(int l){
-    int i;
-    for (i = 0; i <= l; ++i)
-    {
-        l *= i;
+int num(int l) {
+    if (l == 0) return 1; // Base do fatorial: 0! = 1
+    int resultado = 1;
+    for (int i = 1; i <= l; ++i) {
+        resultado *= i;
     }
-    return l;
+    return resultado;
 }
 
-int number(int l, int casas){
-    return num(l)/(num(casas)*num(l-casas));
+
+int number(int l, int casas) {
+    return num(l) / (num(casas) * num(l - casas));
 }
 
-void forma(int m){
-    int l;
-    int casas = m*2 +1;
-    
-    for(l = 0; l<m;l++){
+void forma(int m) {
+    for (int l = 0; l < m; l++) {
 
-        for (int i = 0;i < casas/2 - l; i++)
-        {
+        for (int i = 0; i < m - l - 1; i++) {
             printf(" ");
         }
-        for(int j= 0; j< l+1; j++){
-            printf("%d ", number(l, casas));
+        for (int j = 0; j <= l; j++) {
+            printf("%d ", number(l, j)); 
         }
-        
+
         printf("\n");
     }
-      
 }
 
-int main(){
+int main() {
     int m;
     printf("Escreve o numero de linhas do triangulo de pascal: ");
     scanf("%d", &m);
