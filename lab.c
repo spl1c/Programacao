@@ -23,26 +23,37 @@ int comparar_escalao(const void *a, const void *b) {
     return strcmp(participanteA->escalao, participanteB->escalao);
 }
 
-// Função para analisar uma linha e preencher os dados do participante correspondente
-void analisar_linha(char *linha, Participante *participante) {
-    sscanf(linha, "%d\t%s\t%d\t%d\t%[^\t]\t%c\t%f",
-           &participante->posicao, participante->escalao,
-           &participante->posicao_no_escalao, &participante->dorsal,
-           participante->nome, &participante->sexo, &participante->tempo);
-}
+
 
 // Função para ordenar os dados por escalão
 void ordenar_por_escalao(char *linhas[], char *linhas_ord[]) {
     Participante participantes[MAX_PARTICIPANTS];
 
+
+    FILE *fp;
+    fp = fopen("RunResults.txt", "r");
+    if (fp == NULL)
+        printf("ola");
+    static char *string;
+
     // Analisar cada linha e preencher os dados do participante correspondente
     for (int i = 0; i < MAX_PARTICIPANTS; i++) {
-        analisar_linha(linhas[i], &participantes[i]);
+        Participante *participante = &participantes[i];
+
+        fscanf(fp, "%s", string);
+
+        /*fscanf(fp, "%d\t%s\t%d\t%d\t%s[^\t]\t%c\t%f",
+           &participantes->posicao,
+           participante->escalao,
+           &participante->posicao_no_escalao,
+           &participante->dorsal,
+           participante->nome,
+           &participante->sexo,
+           &participante->tempo);*/
+
+        printf("%s", string);
     }
-
-    // Ordenar os participantes pelo escalão
-    qsort(participantes, MAX_PARTICIPANTS, sizeof(Participante), comparar_escalao);
-
+    
     // Preencher o vetor de linhas ordenado
     for (int i = 0; i < MAX_PARTICIPANTS; i++) {
         sprintf(linhas_ord[i], "%d\t%s\t%d\t%d\t%s\t%c\t%.2f\n",
@@ -50,9 +61,11 @@ void ordenar_por_escalao(char *linhas[], char *linhas_ord[]) {
                 participantes[i].posicao_no_escalao, participantes[i].dorsal,
                 participantes[i].nome, participantes[i].sexo, participantes[i].tempo);
     }
+    fclose(fp);
 }
 
 int main() {
+
     char *linhas[MAX_PARTICIPANTS];
     char *linhas_ord[MAX_PARTICIPANTS];
 
